@@ -16,20 +16,20 @@ var turn = 1,
 for (var i = 0; i < box.length; i++) {
   box[i].points = i + 1
   box[i].addEventListener('click', function() {
-      console.log('turn = ' + turn)
     if (this.innerHTML === '') {
       if (turn % 2 === 0) {
         o.push(this.points)
         o.sort()
         this.innerHTML = '<p>O</p>'
         checkWinner(o)
+        turn++
       } else {
         x.push(this.points)
         x.sort()
         this.innerHTML = '<p>X</p>'
         checkWinner(x)
+        turn++
       }
-      turn++
     }
   })
 }
@@ -49,28 +49,28 @@ function checkWinner (arr) {
         }
       }
     }
-  }
     if (xp === 3) {
-        if (turn % 2 === 0) {
-          alert('O wins!')
-        } else {
-          alert('X wins!')
-        }
+      alert('X wins!')
+      boardreset()
+    }
+    if (op === 3) {
+      alert('O wins!')
       boardreset()
     }
     if (turn === 9) {
       alert('Draw!')
       boardreset()
     }
-    console.log('turn = ' + turn)
+  }
 }
 
 function boardreset () {
   turn = 0
   x = []
   o = []
+  xp = 0
+  op = 0
   for (var i = 0; i < box.length; i++) {
     box[i].innerHTML = ''
-    box[i].points = 0
   }
 }

@@ -1,14 +1,34 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
 .row {
-  margin: 0;
+  margin: 0 auto;
   display: block;
+  position: relative;
   overflow: auto;
+}
+
+#container {
+  padding: 25px;
+  background: rgba(0,0,0,.7);
+  overflow: auto;
+  display: inline-block;
+  margin: 0 auto;
+  border-radius: 10px;
 }
 
 .box {
   text-align: center;
   font-size: 30px;
   float:left;
-  margin: 0;
+  background: white;
+  border-radius: 10px;
+  position: relative;
+  margin: 5px;
   height: 100px;
   width: 100px;
   border: 1px solid black;
